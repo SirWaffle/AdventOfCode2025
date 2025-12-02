@@ -31,9 +31,7 @@ namespace AdventOfCode2025.Days
             {
                 val += turn;
 
-                if (val == 0)
-                    count++;
-
+                bool clicked = val < 0 || val >= 100;
                 while (val < 0)
                 {
                     val += exclusive_max;
@@ -46,25 +44,32 @@ namespace AdventOfCode2025.Days
                     val -= exclusive_max;
                     if (countClicks)
                         count++;
-                }                   
+                }
+
+                if(false)//!clicked)
+                    if (val == 0)
+                        count++;
+
+
             }
         };
 
-        public void Solve_P1()
+        public override void Solve_P1()
         {
             Console.WriteLine(File.ReadAllText(@"Days\" + this.GetType().Name + "_example.txt").Split(Environment.NewLine).Select(x => x.Trim().ToLower()).Select(x => int.Parse(x.Substring(1)) * (x.ToLower()[0] == 'l' ? -1 : 1)).Select(x => (0, 0, x)).Prepend((50, 0, 0)).Aggregate((accum, item) => ((accum.Item1 + item.Item3 ) % 100, accum.Item2 + (((accum.Item1 + item.Item3) % 100) == 0 ? 1 : 0), 0)).Item2);
         }
 
-        public void Solve_P2()
+        public override void Solve_P2()
         {
 
-            //List<string> input = ReadWholeInput().Split(Environment.NewLine).Select(x => x.Trim().ToLower()).ToList();
+            List<string> input = ReadWholeInput().Split(Environment.NewLine).Select(x => x.Trim().ToLower()).ToList();
 
-            //Dial dial = new Dial(50, 100, true);
-            //input.ForEach(x => dial.Turn(int.Parse(x.Substring(1)) * (x.ToLower()[0] == 'l' ? -1 : 1)));
+            Dial dial = new Dial(50, 100, true);
+            input.ForEach(x => dial.Turn(int.Parse(x.Substring(1)) * (x.ToLower()[0] == 'l' ? -1 : 1)));
 
-            //Console.WriteLine(dial.count); // too high 5949
+            Console.WriteLine(dial.count); // too high 5949
 
+            /*
             Console.WriteLine(
                 File.ReadAllText(@"Days\" + this.GetType().Name + "_input.txt")
                     .Split(Environment.NewLine)
@@ -80,7 +85,7 @@ namespace AdventOfCode2025.Days
                                                   , 0
                                                )
                 ).Item2
-            );
+            );*/
         }
     }
 }

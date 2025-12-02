@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2025.Days
 {
-    public class Day_base
+    public abstract class Day_base
     {
         public string ReadWholeExample()
         {
@@ -19,5 +19,15 @@ namespace AdventOfCode2025.Days
             string file = File.ReadAllText(@"Days\" + this.GetType().Name + "_input.txt");
             return file;
         }
+
+        public string ReadWholeInput2()
+        {
+            string file = File.ReadAllText(@"Days\" + this.GetType().Name + "_input2.txt");
+            return file;
+        }
+
+        public abstract void Solve_P1();
+
+        public abstract void Solve_P2();
     }
 }
