@@ -20,14 +20,6 @@ namespace AdventOfCode2025.Days
             return file;
         }
 
-        public string ReadWholeInput2()
-        {
-            string file = File.ReadAllText(@"Days\" + this.GetType().Name + "_input2.txt");
-            return file;
-        }
-
-        public abstract void Solve_P1();
-
-        public abstract void Solve_P2();
+        public abstract void Solve();
     }
 }

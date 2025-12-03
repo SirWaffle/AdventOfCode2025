@@ -8,8 +8,8 @@ namespace AdventOfCode2025
         {
             Console.WriteLine("Starting");
 
-            Day_base day = new Day1();
-            day.Solve_P2();
+            Day_base day = new Day3();
+            day.Solve();
 
             Console.WriteLine("Done");
         }
