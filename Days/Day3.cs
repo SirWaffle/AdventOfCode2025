@@ -40,15 +40,5 @@ namespace AdventOfCode2025.Days
             return total;
         }
 
-        public void Solve_P1_linq()
-        {
-
-        }
-
-        public void Solve_P2_linq()
-        {
-
-        }
-
     }
 }
